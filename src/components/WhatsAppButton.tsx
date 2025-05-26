@@ -13,16 +13,17 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
       <Button
         onClick={handleWhatsAppClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-2xl transition-all duration-300 hover:scale-110 animate-float"
+        className="group relative bg-green-500 hover:bg-green-600 text-white rounded-full p-3 md:p-4 shadow-2xl transition-all duration-500 hover:scale-110 animate-slow-float"
+        style={{ animationDuration: '4s' }}
       >
         {/* WhatsApp Icon */}
         <svg
-          className="w-8 h-8"
+          className="w-6 h-6 md:w-8 md:h-8 transition-transform duration-300 group-hover:rotate-12"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -31,19 +32,47 @@ const WhatsAppButton = () => {
         </svg>
 
         {/* Tooltip */}
-        <div className={`absolute bottom-full right-0 mb-2 transition-all duration-300 ${
+        <div className={`absolute bottom-full right-0 mb-2 transition-all duration-500 ${
           isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
         }`}>
-          <div className="backdrop-blur-md bg-white/90 text-gray-800 px-4 py-2 rounded-lg shadow-lg border border-white/20 whitespace-nowrap font-medium">
+          <div className="backdrop-blur-md bg-gray-900/90 text-white px-3 py-2 md:px-4 md:py-2 rounded-lg shadow-lg border border-green-500/20 whitespace-nowrap font-medium text-sm md:text-base">
             Order Now on WhatsApp
-            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white/90"></div>
+            <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900/90"></div>
           </div>
         </div>
 
-        {/* Pulse Ring */}
-        <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-20"></div>
-        <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-10"></div>
+        {/* Slower Pulse Rings */}
+        <div className="absolute inset-0 rounded-full bg-green-400 opacity-20" style={{
+          animation: 'slow-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite'
+        }}></div>
+        <div className="absolute inset-0 rounded-full bg-green-400 opacity-10" style={{
+          animation: 'slow-pulse 4s ease-in-out infinite'
+        }}></div>
       </Button>
+
+      <style>{`
+        @keyframes slow-float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes slow-ping {
+          75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+        @keyframes slow-pulse {
+          0%, 100% {
+            opacity: 0.1;
+          }
+          50% {
+            opacity: 0.3;
+          }
+        }
+        .animate-slow-float {
+          animation: slow-float 4s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
