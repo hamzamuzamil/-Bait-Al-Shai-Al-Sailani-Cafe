@@ -13,19 +13,19 @@ const GallerySection = () => {
       description: 'Our signature blend served fresh',
     },
     {
-      url: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=800&auto=format&fit=crop',
-      title: 'Cozy Café Ambiance',
-      description: 'Perfect spot for friends and family',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
-      title: 'Modern Interior',
-      description: 'Contemporary design meets traditional warmth',
-    },
-    {
       url: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?q=80&w=800&auto=format&fit=crop',
       title: 'Premium Club Sandwiches',
       description: 'Freshly made with quality ingredients',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop',
+      title: 'Fresh Beverages',
+      description: 'Cold drinks and shakes for hot days',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?q=80&w=800&auto=format&fit=crop',
+      title: 'Cozy Café Ambiance',
+      description: 'Perfect spot for friends and family',
     },
   ];
 
@@ -43,28 +43,28 @@ const GallerySection = () => {
   }, []);
 
   return (
-    <section id="gallery" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
+    <section id="gallery" className="py-20 bg-gray-900 relative overflow-hidden">
+      {/* Futuristic Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%2358d68d' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%2300ffff' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E")`
         }}></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="font-display text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-6">
             Experience Our Café
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Take a visual journey through our cozy ambiance, delicious food, and happy moments
           </p>
         </div>
 
         {/* Main Gallery Slider */}
         <div className="relative max-w-6xl mx-auto mb-12">
-          <div className="backdrop-blur-lg bg-white/60 border border-white/30 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="backdrop-blur-2xl bg-white/5 border border-cyan-400/20 rounded-3xl overflow-hidden shadow-2xl shadow-cyan-500/10">
             <div className="relative h-[500px] md:h-[600px] overflow-hidden">
               {galleryImages.map((image, index) => (
                 <div
@@ -81,15 +81,15 @@ const GallerySection = () => {
                     className="w-full h-full object-cover"
                   />
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                   
                   {/* Image Info */}
                   <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6">
-                      <h3 className="font-display text-2xl md:text-3xl font-bold mb-2">
+                    <div className="backdrop-blur-xl bg-white/10 border border-cyan-400/30 rounded-2xl p-6">
+                      <h3 className="font-display text-2xl md:text-3xl font-bold mb-2 text-cyan-200">
                         {image.title}
                       </h3>
-                      <p className="text-lg opacity-90">
+                      <p className="text-lg text-gray-200">
                         {image.description}
                       </p>
                     </div>
@@ -102,7 +102,7 @@ const GallerySection = () => {
                 variant="ghost"
                 size="sm"
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/20 hover:bg-white/30 text-white border border-white/30 rounded-full p-3 transition-all duration-300 hover:scale-110"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 hover:bg-cyan-500/20 text-white border border-cyan-400/30 rounded-full p-3 transition-all duration-300 hover:scale-110"
               >
                 <ArrowLeft className="w-6 h-6" />
               </Button>
@@ -111,7 +111,7 @@ const GallerySection = () => {
                 variant="ghost"
                 size="sm"
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/20 hover:bg-white/30 text-white border border-white/30 rounded-full p-3 transition-all duration-300 hover:scale-110"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 backdrop-blur-md bg-white/10 hover:bg-cyan-500/20 text-white border border-cyan-400/30 rounded-full p-3 transition-all duration-300 hover:scale-110"
               >
                 <ArrowRight className="w-6 h-6" />
               </Button>
@@ -126,8 +126,8 @@ const GallerySection = () => {
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-gold-500 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-cyan-400 scale-125 shadow-lg shadow-cyan-400/50' 
+                    : 'bg-gray-600 hover:bg-gray-500'
                 }`}
               />
             ))}
@@ -141,7 +141,7 @@ const GallerySection = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 ${
-                index === currentSlide ? 'ring-4 ring-gold-400 ring-opacity-60' : ''
+                index === currentSlide ? 'ring-2 ring-cyan-400 ring-opacity-60' : ''
               }`}
             >
               <img
@@ -149,10 +149,10 @@ const GallerySection = () => {
                 alt={image.title}
                 className="w-full h-32 md:h-40 object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
               {index === currentSlide && (
-                <div className="absolute inset-0 bg-gold-400/20 flex items-center justify-center">
-                  <div className="w-4 h-4 bg-white rounded-full animate-pulse"></div>
+                <div className="absolute inset-0 bg-cyan-400/20 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-cyan-400 rounded-full animate-pulse shadow-lg shadow-cyan-400/50"></div>
                 </div>
               )}
             </button>
@@ -161,18 +161,18 @@ const GallerySection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">Want to see more? Follow us on social media!</p>
+          <p className="text-gray-400 mb-6">Want to see more? Follow us on social media!</p>
           <div className="flex justify-center space-x-4">
             <Button
               variant="outline"
-              className="border-2 border-mint-500 text-mint-600 hover:bg-mint-500 hover:text-white transition-all duration-300"
+              className="border-2 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/20 hover:text-cyan-300 transition-all duration-300 backdrop-blur-md bg-white/5"
               onClick={() => window.open('https://instagram.com/baitalshai', '_blank')}
             >
               📸 Instagram
             </Button>
             <Button
               variant="outline"
-              className="border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white transition-all duration-300"
+              className="border-2 border-blue-500/50 text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 transition-all duration-300 backdrop-blur-md bg-white/5"
               onClick={() => window.open('https://facebook.com/baitalshai', '_blank')}
             >
               📘 Facebook
