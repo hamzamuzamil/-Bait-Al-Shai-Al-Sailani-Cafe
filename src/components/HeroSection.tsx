@@ -38,15 +38,16 @@ const HeroSection = () => {
             }`}
           >
             <img
-              src={image}
+              src="https://sdmntprwestus.oaiusercontent.com/files/00000000-07b8-6230-94a8-f73540ae1812/raw?se=2025-06-02T11%3A14%3A04Z&sp=r&sv=2024-08-04&sr=b&scid=186e1fcd-c404-5dc7-891f-fc134ca4613f&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-02T09%3A00%3A56Z&ske=2025-06-03T09%3A00%3A56Z&sks=b&skv=2024-08-04&sig=7kq001f2Nqd/sQ2CAChJ8nbBI6VIHUWFjIg6W1vjQGc%3D"
               alt={`Café ambiance ${index + 1}`}
               className="w-full h-full object-cover scale-110 animate-ken-burns"
               loading={index === 0 ? 'eager' : 'lazy'}
             />
+
           </div>
         ))}
         {/* Enhanced Dark Overlay for futuristic look */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/90 via-gray-900/85 to-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br "></div>
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-blue-900/15 to-purple-900/20"></div>
       </div>
 
